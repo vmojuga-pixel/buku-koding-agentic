@@ -1682,3 +1682,104 @@ words = [lemmatizer.lemmatize(w.lower()) for w in words if w
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #11 // 2026-10-14T23:00:54.108Z
+### Topik
+Pengembangan Chatbot Pembelajaran Adaptif Berbasis Kearifan Lokal untuk Meningkatkan Minat Belajar Siswa Sekolah Dasar.
+### Kod v1
+```javascript
+```python
+import nltk
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+
+import json
+import pickle
+import numpy as np
+from keras.models import Sequential
+from keras.layers import Dense, Activation, Dropout
+from keras.optimizers import SGD
+import random
+words = []
+classes = []
+documents = []
+ignore_letters = ['!', '?', '.', ',']
+
+with open('kearifan_lokal.json') as file:
+    data = json.load(file)
+
+for intent in data['intents']:
+    for pattern in intent['patterns']:
+        word = nltk.word_tokenize(pattern)
+        words.extend(word)
+        documents.append((word, intent['tag']))
+        if intent['tag'] not in classes:
+            classes.append(intent['tag'])
+
+words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_letters]
+words = sorted(list(set(words)))
+classes = sorted(list(set(classes)))
+
+pickle.dump(words, open('words.pkl', 'wb'))
+pickle.dump(classes, open('classes.pkl', 'wb'))
+
+training = []
+output_empty = [0] * len(classes)
+
+for doc in documents:
+    bag = []
+    word_patterns
+```
+### Kritikan + Sandbox v1
+1. Kurangnya penanganan data yang tidak lengkap atau rusak.
+2. Penggunaan metode lemmatization yang tidak sempurna.
+3. Model tidak menangani kasus kata yang tidak dikenal.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import nltk
+from nltk.stem import WordNetLemmatizer
+import json
+import pickle
+import numpy as np
+from keras.models import Sequential
+from keras.layers import Dense, Activation, Dropout
+from keras.optimizers import SGD
+import random
+
+# Inisialisasi
+lemmatizer = WordNetLemmatizer()
+words = []
+classes = []
+documents = []
+ignore_letters = ['!', '?', '.', ',']
+
+# Load data dengan penanganan error
+try:
+    with open('kearifan_lokal.json') as file:
+        data = json.load(file)
+except Exception as e:
+    print(f"Error load data: {e}")
+
+# Proses data
+for intent in data['intents']:
+    for pattern in intent['patterns']:
+        word = nltk.word_tokenize(pattern)
+        words.extend(word)
+        documents.append((word, intent['tag']))
+        if intent['tag'] not in classes:
+            classes.append(intent['tag'])
+
+# Preproses kata
+words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_letters and w != "?"]
+words = sorted(list(set(words)))
+classes = sorted(list(set(classes)))
+
+# Simpan data
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1.
