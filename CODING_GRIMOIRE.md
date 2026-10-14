@@ -834,3 +834,81 @@ Saya sarankan Anda untuk mempelajari contoh implementasi LRU cache dalam bahasa 
 **Penilaian:**
 
 Berdasarkan ringkasan dan sintesis informasi yang Anda berikan, saya nilai bahwa Anda telah memahami konsep dasar LRU cache dengan baik. Anda dapat melanjutkan ke tahap selanjutnya untuk mempelajari topik yang lebih lanjut. **Selesai.**
+
+
+---
+## EPOCH #3 // 2026-10-14T18:11:44.120Z
+### Topik
+Debounce vs Throttle in JS
+### Kod v1
+```javascript
+```javascript
+// Debounce
+function debounce(func, wait) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+}
+
+// Throttle
+function throttle(func, wait) {
+  let timeout;
+  return (...args) => {
+    if (!timeout) {
+      timeout = setTimeout(() => {
+        timeout = null;
+        func(...args);
+      }, wait);
+    }
+  };
+}
+```
+```
+### Kritikan
+1. Tidak ada penanganan error jika `wait` bernilai negatif atau tidak valid.
+2. Fungsi `debounce` dan `throttle` tidak mendukung argumen tambahan seperti `immediate` untuk eksekusi segera.
+3. Tidak ada mekanisme untuk membatalkan operasi yang sudah dijadwalkan.
+### Kod v2
+```javascript
+```javascript
+function debounce(func, wait, immediate = false) {
+  if (wait <= 0) throw new Error('Wait harus bernilai positif');
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    if (immediate && !timeout) func(...args);
+    timeout = setTimeout(() => {
+      timeout = null;
+      if (!immediate) func(...args);
+    }, wait);
+  };
+}
+
+function throttle(func, wait) {
+  if (wait <= 0) throw new Error('Wait harus bernilai positif');
+  let timeout;
+  return (...args) => {
+    if (!timeout) {
+      timeout = setTimeout(() => {
+        timeout = null;
+        func(...args);
+      }, wait);
+    }
+  };
+}
+
+function cancelAnimationFrameOrTimeout(timeoutId) {
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+    return null;
+  }
+}
+```
+```
+### Breakthrough
+1. Fungsi `debounce`, `throttle`, dan `cancelAnimationFrameOrTimeout` berjaya diimplementasikan untuk menguruskan fungsi asinkronon. 
+2. Ia dapat membantu mengoptimumkan prestasi aplikasi dengan mengawal kadar pelaksanaan fungsi. 
+3. Fungsi `debounce` dapat menangguhkan pelaksanaan fungsi sehingga tempoh tertentu, 
+4. Manakala `throttle` menghadkan pelaksanaan fungsi dalam tempoh masa tertentu.
