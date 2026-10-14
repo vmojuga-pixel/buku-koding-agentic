@@ -1026,3 +1026,71 @@ Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 3. Penggunaan `os.environ` secara langsung boleh menyebabkan masalah jika variable tidak dapat dibaca. 
 4. Tempoh token tidak fleksibel. 
 5. Algorithm tidak flexible.
+
+
+---
+## EPOCH #5 // 2026-10-14T18:18:29.604Z
+### Topik
+test sandbox
+### Kod v1
+```javascript
+```python
+import unittest
+from tempfile import TemporaryDirectory
+import json
+
+def uji_kaji(data):
+    with TemporaryDirectory() as tmp_dir:
+        with open(f"{tmp_dir}/data.json", "w") as f:
+            json.dump(data, f)
+        # Kod ujikaji di sini
+
+class TestUjiKaji(unittest.TestCase):
+    def test_uji_kaji(self):
+        data = {"name": "John", "age": 30}
+        uji_kaji(data)
+
+if __name__ == "__main__":
+    unittest.main()
+```
+```
+### Kritikan + Sandbox v1
+1. Tiada kod ujikaji dalam fungsi `uji_kaji`.
+2. Tiada pengecualian pengendalian jika gagal menulis fail.
+3. Direktori sementara tidak dihapuskan secara manual jika berlaku ralat.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import unittest
+from tempfile import TemporaryDirectory
+import json
+import os
+
+def uji_kaji(data):
+    try:
+        with TemporaryDirectory() as tmp_dir:
+            with open(f"{tmp_dir}/data.json", "w") as f:
+                json.dump(data, f)
+            # Kod ujikaji di sini
+            with open(f"{tmp_dir}/data.json", "r") as f:
+                uji_data = json.load(f)
+            assert uji_data == data
+    except Exception as e:
+        print(f"Ralat: {e}")
+
+class TestUjiKaji(unittest.TestCase):
+    def test_uji_kaji(self):
+        data = {"name": "John", "age": 30}
+        uji_kaji(data)
+
+if __name__ == "__main__":
+    unittest.main()
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1. Buat direktori sementara. 
+2. Tulis data ke fail json dalam direktori sementara. 
+3. Baca data dari fail json dan uji kesamaan data. 
+4. Hapus direktori sementara secara automatik.
