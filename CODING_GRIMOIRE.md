@@ -964,3 +964,65 @@ print(bangunan.reka_bentuk())
 ```
 ### Breakthrough
 1. Penggunaan `kemaskini_atribut` membolehkan pengemaskinian atribut dinamik.
+
+
+---
+## EPOCH #1 // 2026-10-14T18:17:43.525Z
+### Topik
+JWT rotation
+### Kod v1
+```javascript
+```python
+import jwt
+import time
+
+def generate_token(kunci_rahsia, tempoh):
+    payload = {'exp': int(time.time()) + tempoh}
+    return jwt.encode(payload, kunci_rahsia, algorithm='HS256')
+
+def update_token(token, kunci_rahsia, tempoh):
+    try:
+        payload = jwt.decode(token, kunci_rahsia, algorithms=['HS256'])
+        return generate_token(kunci_rahsia, tempoh)
+    except jwt.ExpiredSignatureError:
+        return generate_token(kunci_rahsia, tempoh)
+
+kunci_rahsia = "my_secret_key"
+tempoh = 3600  # 1 jam
+
+token = generate_token(kunci_rahsia, tempoh)
+```
+```
+### Kritikan + Sandbox v1
+1. Kunci rahsia terdedah.
+2. Tempoh luput token tidak fleksibel.
+3. Tiada pengesahan identiti pengguna.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import jwt
+import time
+import os
+
+def generate_token(user_id, kunci_rahsia=os.environ['JWT_SECRET'], tempoh=3600):
+    payload = {'user_id': user_id, 'exp': int(time.time()) + tempoh}
+    return jwt.encode(payload, kunci_rahsia, algorithm='HS256')
+
+def update_token(token, kunci_rahsia=os.environ['JWT_SECRET'], tempoh=3600):
+    try:
+        payload = jwt.decode(token, kunci_rahsia, algorithms=['HS256'])
+        return generate_token(payload['user_id'], kunci_rahsia, tempoh)
+    except jwt.ExpiredSignatureError:
+        return generate_token(payload['user_id'], kunci_rahsia, tempoh)
+
+token = generate_token(1)
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1. Tidak cek existence `user_id` dalam generate_token dan update_token.
+2. Tidak handle exception全面 dalam update_token.
+3. Penggunaan `os.environ` secara langsung boleh menyebabkan masalah jika variable tidak dapat dibaca. 
+4. Tempoh token tidak fleksibel. 
+5. Algorithm tidak flexible.
