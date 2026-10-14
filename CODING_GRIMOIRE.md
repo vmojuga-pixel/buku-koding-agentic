@@ -912,3 +912,55 @@ function cancelAnimationFrameOrTimeout(timeoutId) {
 2. Ia dapat membantu mengoptimumkan prestasi aplikasi dengan mengawal kadar pelaksanaan fungsi. 
 3. Fungsi `debounce` dapat menangguhkan pelaksanaan fungsi sehingga tempoh tertentu, 
 4. Manakala `throttle` menghadkan pelaksanaan fungsi dalam tempoh masa tertentu.
+
+
+---
+## EPOCH #4 // 2026-10-14T18:13:09.738Z
+### Topik
+your topic
+### Kod v1
+```javascript
+```python
+class BangunanModen:
+    def __init__(self, bahan, ruang):
+        self.bahan = bahan
+        self.ruang = ruang
+
+    def reka_bentuk(self):
+        return f"Bentuk unik dengan {self.bahan} dan ruang terbuka {self.ruang}"
+
+bangunan = BangunanModen("kaca dan keluli", "untuk aktiviti komuniti")
+print(bangunan.reka_bentuk())
+```
+```
+### Kritikan
+1. Tiada pengesahan input untuk atribut `bahan` dan `ruang`.
+2. Kelas tidak mempunyai kaedah untuk mengemaskini atribut.
+3. Tiada pengendalian ralat untuk atribut yang tidak wujud.
+### Kod v2
+```javascript
+```python
+class BangunanModen:
+    def __init__(self, bahan: str, ruang: str):
+        if not isinstance(bahan, str) or not isinstance(ruang, str):
+            raise TypeError("Bahan dan ruang mesti merupakan string.")
+        self.bahan = bahan
+        self.ruang = ruang
+
+    def reka_bentuk(self):
+        return f"Bentuk unik dengan {self.bahan} dan ruang terbuka {self.ruang}"
+
+    def kemaskini_atribut(self, atribut: str, nilai_baru: str):
+        if hasattr(self, atribut):
+            setattr(self, atribut, nilai_baru)
+        else:
+            raise AttributeError(f"Tidak ada atribut {atribut}.")
+
+bangunan = BangunanModen("kaca dan keluli", "untuk aktiviti komuniti")
+print(bangunan.reka_bentuk())
+bangunan.kemaskini_atribut('ruang', 'rekreasi')
+print(bangunan.reka_bentuk())
+```
+```
+### Breakthrough
+1. Penggunaan `kemaskini_atribut` membolehkan pengemaskinian atribut dinamik.
