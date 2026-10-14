@@ -1324,3 +1324,79 @@ Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 2. Missing values handled using mean imputation. 
 3. Assumptions validated using OLS model. 
 4. Data split into training and testing sets.
+
+
+---
+## EPOCH #7 // 2026-10-14T22:00:51.324Z
+### Topik
+Penggunaan Chatbot Dalam Pembelajaran Interaktif.
+### Kod v1
+```javascript
+```python
+import random
+
+def quiz_soalan():
+    soalan = ["Apa itu Python?", "Apa itu Java?"]
+    jawapan = ["Bahasa pengaturcaraan", "Bahasa pengaturcaraan"]
+
+    skor = 0
+    for i in range(len(soalan)):
+        print(soalan[i])
+        input_jawapan = input("Jawapan: ")
+        if input_jawapan.lower() == jawapan[i].lower():
+            skor += 1
+            print("Benar!\n")
+        else:
+            print(f"Salah. Jawapan yang betul adalah {jawapan[i]}.\n")
+
+    print(f"Anda mendapat skor {skor}/{len(soalan)}")
+
+quiz_soalan()
+```
+```
+### Kritikan + Sandbox v1
+1. Soalan dan jawapan tidak disimpan dalam struktur data yang fleksibel.
+2. Tiada pengesahan input pengguna.
+3. Kod tidak boleh dikembangkan untuk pelbagai jenis soalan.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import random
+
+class Soalan:
+    def __init__(self, pertanyaan, jawapan, jenis):
+        self.pertanyaan = pertanyaan
+        self.jawapan = jawapan
+        self.jenis = jenis
+
+def quiz_soalan():
+    soalan_bank = [
+        Soalan("Apa itu Python?", "Bahasa pengaturcaraan", "teks"),
+        Soalan("Apa itu Java?", "Bahasa pengaturcaraan", "teks")
+    ]
+
+    skor = 0
+    for soalan in soalan_bank:
+        print(soalan.pertanyaan)
+        if soalan.jenis == "teks":
+            input_jawapan = input("Jawapan: ")
+            if input_jawapan.strip().lower() == soalan.jawapan.lower():
+                skor += 1
+                print("Benar!\n")
+            else:
+                print(f"Salah. Jawapan yang betul adalah {soalan.jawapan}.\n")
+        else:
+            print("Jenis soalan tidak disokong.\n")
+
+    print(f"Anda mendapat skor {skor}/{len(soalan_bank)}")
+
+quiz_soalan()
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1. Gunakan class `Soalan` untuk representasi soalan.
+2. Tukar `soalan_bank` menjadi data luaran (contoh: JSON atau pangkalan data).
+3. Tambah jenis soalan lain (contoh: pilihan ganda). 
+4. Guna fungsi `random.shuffle` untuk susunan soalan rawak.
