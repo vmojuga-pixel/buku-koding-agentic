@@ -1400,3 +1400,92 @@ Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 2. Tukar `soalan_bank` menjadi data luaran (contoh: JSON atau pangkalan data).
 3. Tambah jenis soalan lain (contoh: pilihan ganda). 
 4. Guna fungsi `random.shuffle` untuk susunan soalan rawak.
+
+
+---
+## EPOCH #8 // 2026-10-14T22:15:41.105Z
+### Topik
+Pengembangan Chatbot Pembelajaran Adaptif.
+### Kod v1
+```javascript
+```python
+import pandas as pd
+from sklearn.model_selection import train_test_split 
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
+
+# Menganalisis kinerja siswa
+def analyze_performance(data):
+    X = data[['score']]
+    y = data['performance']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+    model = LinearRegression()  
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    return y_pred
+
+# Penyesuaian konten pembelajaran
+def adjust_content(data, performance):
+    if performance < 50:
+        return "Easy"
+    elif performance < 80:
+        return "Medium"
+    else:
+        return "Hard"
+
+# Menyediakan umpan balik实时 dan penilaian kinerja
+def provide_feedback(data):
+    feedback = []
+    for i in range(len(data)):
+        feedback.append("Score: " + str(data.iloc[i]['score']) + ", Performance: " + str(data.iloc[i]['performance']))
+    return feedback
+
+# Integrasi AI
+import nltk
+from nltk.sentiment import SentimentIntensityAnalyzer
+
+def sentiment_analysis(text):
+    sia
+```
+### Kritikan + Sandbox v1
+1. **Keterbatasan Model**: Model LinearRegression mungkin tidak efektif untuk data non-linear.
+2. **Ketergantungan pada Data**: Fungsi `adjust_content` dan `provide_feedback` sangat bergantung pada kualitas data masukan.
+3. **Keterbatasan Analisis Sentimen**: Fungsi `sentiment_analysis` memerlukan tambahan kode untuk menyelesaikan analisis sentimen.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+from sklearn.ensemble import RandomForestRegressor
+def analyze_performance(data):
+    X = data[['score']]
+    y = data['performance']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+    model = RandomForestRegressor()  
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    return y_pred
+
+def adjust_content(data, performance):
+    level = { 'low': 50, 'mid': 80 }; 
+    if performance < level['low']:
+        return "Easy"
+    elif performance < level['mid']:
+        return "Medium"
+    else:
+        return "Hard"
+
+def provide_feedback(data):
+    return [f"Score: {score}, Performance: {perf}" for score, perf in zip(data['score'], data['performance'])]
+
+def sentiment_analysis(text):
+    sia = SentimentIntensityAnalyzer()
+    return sia.polarity_scores(text)
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1. Import libraries: `from sklearn.model_selection import train_test_split` and `from nltk.sentiment.vader import SentimentIntensityAnalyzer` are missing. 
+2. `SentimentIntensityAnalyzer` needs to be initialized outside the function or imported properly if it's defined elsewhere.
+3. Function `analyze_performance` returns only predictions, not the actual performance analysis.
+4. The `adjust_content` function does not use the provided `performance` parameter but instead calculates it. 
+5. There is no main function or example usage provided for these functions.
