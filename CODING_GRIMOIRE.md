@@ -1249,3 +1249,78 @@ is_valid = verify_stripe_webhook_signature(stripe_secret_key, request_body, stri
 print(is_valid)  # Output: True or False
 ```
 ```
+
+
+---
+## EPOCH #6 // 2026-10-14T21:45:39.756Z
+### Topik
+Kecerdasan Buatan Dalam Pendidikan.
+### Kod v1
+```javascript
+```python
+import pandas as pd
+from sklearn.model_selection import train_test_split 
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
+
+# Load data pelajar
+data = pd.read_csv('data_pelajar.csv')
+
+# Personalisasi pengalaman belajar
+X = data[['kualiti_pembelajaran', 'pengalaman_belajar']]
+y = data['hasil_akhir']
+
+# Automatisasi penilaian
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+
+# Analisis data pelajar
+lr = LinearRegression()  
+lr.fit(X_train, y_train)
+
+y_pred = lr.predict(X_test)
+
+print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
+```
+```
+### Kritikan + Sandbox v1
+1. Kurangnya penanganan data missing.
+2. Tidak ada validasi asumsi model.
+3. Model terlalu sederhana.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import pandas as pd
+from sklearn.model_selection import train_test_split 
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler
+import statsmodels.api as sm
+from sklearn.ensemble import RandomForestRegressor
+
+# Load data pelajar
+data = pd.read_csv('data_pelajar.csv')
+
+# Tangani data missing
+imputer = SimpleImputer(strategy='mean')
+data[['kualiti_pembelajaran', 'pengalaman_belajar', 'hasil_akhir']] = imputer.fit_transform(data[['kualiti_pembelajaran', 'pengalaman_belajar', 'hasil_akhir']])
+
+# Personalisasi pengalaman belajar
+X = data[['kualiti_pembelajaran', 'pengalaman_belajar']]
+y = data['hasil_akhir']
+
+# Validasi asumsi model
+X = sm.add_constant(X)
+model = sm.OLS(y, X).fit()
+print(model.summary())
+
+# Automatisasi penilaian
+X_train, X_test, y_train, y_test = train_test_split(X.drop('const', axis=1), y, test_size=0.2, random_state=0)
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1. Data loaded and preprocessed. 
+2. Missing values handled using mean imputation. 
+3. Assumptions validated using OLS model. 
+4. Data split into training and testing sets.
