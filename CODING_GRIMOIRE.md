@@ -1489,3 +1489,94 @@ Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 3. Function `analyze_performance` returns only predictions, not the actual performance analysis.
 4. The `adjust_content` function does not use the provided `performance` parameter but instead calculates it. 
 5. There is no main function or example usage provided for these functions.
+
+
+---
+## EPOCH #9 // 2026-10-14T22:30:50.745Z
+### Topik
+1. Reka Bentuk Chatbot Pembelajaran Interaktif Berasaskan Kearifan Lokal.
+2. Pembangunan Chatbot Adaptif Untuk Pembelajaran Bahasa Asing.
+3. Integrasi Chatbot Dalam Pembelajaran STEM Interaktif.
+4. Penggunaan Chatbot Dalam Pembelajaran Emosi dan Keterampilan Sosial.
+### Kod v1
+```javascript
+```python
+import random
+from nltk.tokenize import word_tokenize
+from gtts import gTTS
+import os
+
+# Modul Kearifan Lokal
+kearifan_lokal = {
+    "soalan1": ["Jawapan 1", "Jawapan 2"],
+    "soalan2": ["Jawapan 3", "Jawapan 4"]
+}
+
+# Fungsi Chatbot
+def chatbot_soalan(soalan):
+    if soalan in kearifan_lokal:
+        return random.choice(kearifan_lokal[soalan])
+    else:
+        return "Maaf, saya tidak faham soalan anda."
+
+# Fungsi Text-to-Speech
+def text_to_speech(jawapan):
+    tts = gTTS(text=jawapan, lang='ms')
+    tts.save("jawapan.mp3")
+    os.system("start jawapan.mp3")
+
+# Antara Muka Pengguna
+def main():
+    print("Selamat datang ke chatbot!")
+    while True:
+        soalan = input("Anda: ")
+        jawapan = chatbot_soalan(soalan)
+        print("Chatbot: ", jawapan)
+        text_to_speech(jawapan)
+
+if __
+```
+### Kritikan + Sandbox v1
+1. **Tidak ada penanganan kesalahan** pada fungsi `text_to_speech` jika file "jawapan.mp3" gagal dibuat atau diputar.
+2. **Ketergantungan pada sistem operasi**, karena perintah `os.system("start jawaban.mp3")` hanya bekerja pada Windows.
+3. **Kurangnya variasi jawaban**, karena chatbot hanya memilih jawaban secara acak dari daftar yang telah ditentukan.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import random
+import os
+import platform
+from nltk.tokenize import word_tokenize
+from gtts import gTTS
+
+kearifan_lokal = {
+    "soalan1": ["Jawapan 1", "Jawapan 2"],
+    "soalan2": ["Jawapan 3", "Jawapan 4"]
+}
+
+def chatbot_soalan(soalan):
+    if soalan in kearifan_lokal:
+        return random.choice(kearifan_lokal[soalan])
+    else:
+        return "Maaf, saya tidak faham soalan anda."
+
+def text_to_speech(jawapan):
+    try:
+        tts = gTTS(text=jawapan, lang='ms')
+        tts.save("jawapan.mp3")
+        if platform.system() == 'Windows':
+            os.system("start jawapan.mp3")
+        elif platform.system() == 'Darwin': # MacOS
+            os.system("afplay jawapan.mp3")
+        else: # Linux
+            os.system("mpg321 jawapan.mp3")
+    except Exception as e:
+        print(f"Error: {e}")
+
+def main():
+    print("Selamat datang ke chatbot
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1.
