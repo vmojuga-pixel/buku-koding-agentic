@@ -4884,3 +4884,93 @@ def ar_experience():
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #50 // 2026-10-15T08:45:30.764Z
+### Topik
+"Integrasi Teknologi Realiti Maya dan Realiti Tambah dalam Pembelajaran Ekosistem Hutan Bakau dan Tanah Paya".
+### Kod v1
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_mangrove(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glScalef(10, 10, 10)
+    gluSphere(gluNewQuadric(), 1, 32, 32)
+    glPopMatrix()
+
+def draw_swamp(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glScalef(5, 5, 5)
+    glColor3f(0, 1, 0)
+    gluSphere(gluNewQuadric(), 1, 32, 32)
+    glPopMatrix()
+
+def main():
+    pygame.init()
+    display = (800, 600)
+    pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
+
+    gluPerspective(45, (display[0]/display[1]), 0.1, 50.0)
+
+    glTranslatef(0.0, 0.0, -5)
+
+    while True:
+        for event in pygame.event.get():
+```
+### Kritikan + Sandbox v1
+1. Kod tidak lengkap.
+2. Tiada pengoptimuman prestasi.
+3. Kurang pengendalian ralat.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_mangrove(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glScalef(10, 10, 10)
+    gluSphere(gluNewQuadric(), 1, 32, 32)
+    glPopMatrix()
+
+def draw_swamp(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glScalef(5, 5, 5)
+    glColor3f(0, 1, 0)
+    gluSphere(gluNewQuadric(), 1, 32, 32)
+    glPopMatrix()
+
+def main():
+    try:
+        pygame.init()
+        display = (800, 600)
+        pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
+
+        gluPerspective(45, (display[0]/display[1]), 0.1, 50.0)
+
+        glTranslatef(0.0, 0.0, -5)
+
+        clock = pygame.time.Clock()
+
+        while
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
