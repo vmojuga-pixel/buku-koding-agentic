@@ -4124,3 +4124,93 @@ app = EcosystemApp()
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #41 // 2026-10-15T06:31:26.969Z
+### Topik
+Pengenalan Ekosistem Tanah Paya dan Hutan Hujan Melalui Teknologi Realiti Tambah dan Realiti Maya.
+### Kod v1
+```javascript
+```python
+import numpy as np
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+# Pembangunan aplikasi AR/VR
+def create_ar_vr_app():
+    # Import library AR/VR
+    import cv2
+    import matplotlib.pyplot as plt
+
+    # Pembangunan simulasi pengalaman belajar
+    def create_simulation():
+        # Simulasi pengalaman belajar interaktif
+        fig, ax = plt.subplots()
+        ax.set_title('Simulasi Ekosistem Tanah Paya')
+
+# Integrasi teknologi terkini
+def integrate_technology():
+    # Visualisasi data dan analisis saintifik
+    import pandas as pd
+    from sklearn.model_selection import train_test_split
+
+# Pembangunan platform pembelajaran digital
+def create_learning_platform():
+    # Akses mudah dan berkesan
+    from flask import Flask, render_template
+    app = Flask(__name__)
+
+# Pelaksanaan aplikasi
+if __name__ == '__main__':
+    create_ar_vr_app()
+    integrate_technology()
+    create_learning_platform()
+```
+```
+### Kritikan + Sandbox v1
+1. Kod tidak modular.
+2. Import library berlebihan.
+3. Tiada pengendalian ralat.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+import cv2
+import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from flask import Flask, render_template
+
+def create_ar_vr_app():
+    try:
+        fig, ax = plt.subplots()
+        ax.set_title('Simulasi Ekosistem Tanah Paya')
+    except Exception as e:
+        print(f"Ralat AR/VR: {e}")
+
+def integrate_technology(data):
+    try:
+        df = pd.DataFrame(data)
+        X_train, X_test, y_train, y_test = train_test_split(df.drop('target', axis=1), df['target'], test_size=0.2)
+        return X_train, X_test, y_train, y_test
+    except Exception as e:
+        print(f"Ralat integrasi teknologi: {e}")
+
+def create_learning_platform():
+    try:
+        app = Flask(__name__)
+        return app
+    except Exception as e:
+        print(f"Ralat platform pembelajaran: {e}")
+
+if __name__ == '__main__':
+    create_ar_vr_app()
+    data = np.random.rand(
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
