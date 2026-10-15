@@ -2267,3 +2267,94 @@ try:
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #18 // 2026-10-15T00:45:41.088Z
+### Topik
+Chatbot Pembelajaran Interaktif Kearifan Lokal tingkat SD.
+### Kod v1
+```javascript
+```python
+import random
+
+# Kearifan lokal Indonesia
+kearifan_lokal = {
+    "Pancasila": "Lambang negara Indonesia",
+    "Batik": "Kain tradisional Indonesia",
+    "Gamelan": "Alat musik tradisional Indonesia"
+}
+
+# Materi pembelajaran
+materi_pembelajaran = {
+    "teks": "Selamat datang di pembelajaran interaktif!",
+    "gambar": "https://example.com/gambar.jpg",
+    "permainan": "Ular tangga"
+}
+
+# Fungsi chatbot
+def chatbot():
+    print("Selamat datang di chatbot pembelajaran!")
+    while True:
+        user_input = input("Apa yang ingin kamu ketahui? ")
+        if user_input.lower() == "keluar":
+            break
+        elif user_input in kearifan_lokal:
+            print(kearifan_lokal[user_input])
+        else:
+            print("Maaf, saya tidak mengerti.")
+
+# Fungsi pembelajaran interaktif
+def pembelajaran_interaktif():
+    print("Selamat datang di pembelajaran interaktif!")
+    print(materi_pembelajaran["teks"])
+    print("Gambar: ", materi_pembelajaran["gambar"])
+    print("Permainan: ", materi_pembelajaran
+```
+### Kritikan + Sandbox v1
+1. Tidak ada penanganan error pada input user.
+2. Fungsi `pembelajaran_interaktif` tidak selesai dijalankan.
+3. Data tidak divalidasi sebelum digunakan.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import random
+
+kearifan_lokal = {
+    "Pancasila": "Lambang negara Indonesia",
+    "Batik": "Kain tradisional Indonesia",
+    "Gamelan": "Alat musik tradisional Indonesia"
+}
+
+materi_pembelajaran = {
+    "teks": "Selamat datang di pembelajaran interaktif!",
+    "gambar": "https://example.com/gambar.jpg",
+    "permainan": "Ular tangga"
+}
+
+def chatbot():
+    try:
+        while True:
+            user_input = input("Apa yang ingin kamu ketahui? ")
+            if user_input.lower() == "keluar":
+                break
+            elif user_input in kearifan_lokal:
+                print(kearifan_lokal[user_input])
+            else:
+                print("Maaf, saya tidak mengerti.")
+    except Exception as e:
+        print("Error:", str(e))
+
+def pembelajaran_interaktif():
+    try:
+        print("Selamat datang di pembelajaran interaktif!")
+        print(materi_pembelajaran["teks"])
+        print("Gambar: ", materi_pembelajaran.get("gambar", "Gambar tidak tersedia"))
+        print("Permainan: ", materi_pembelajaran.get("permainan",
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1. Gunakan struktur data yang lebih baik untuk materi pembelajaran. 
+2. Tambahkan penanganan error pada input user. 
+3. Sempurnakan fungsi pembelajaran interaktif.
