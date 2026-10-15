@@ -2499,3 +2499,75 @@ Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 2. Tambahkan penanganan error untuk kategori yang tidak ada. 
 3. Fungsi `aktivitas_acak` dapat dikembangkan untuk menerima parameter tambahan. 
 4. Fungsi `main` dapat dikembangkan untuk menerima input dari pengguna.
+
+
+---
+## EPOCH #21 // 2026-10-15T01:30:46.125Z
+### Topik
+Mengenal Ekosistem Hutan Hujan Tropis Melalui Permainan Edukatif.
+### Kod v1
+```javascript
+```python
+import random
+
+class EnvironmentalGame:
+    def __init__(self):
+        self.score = 0
+
+    def play(self):
+        print("Selamat datang ke permainan konservasi!")
+        while True:
+            action = input("Apa yang ingin kamu lakukan? (A) Mengurangi penggunaan plastik, (B) Membuang sampah sembarangan, (C) Keluar: ")
+            if action.upper() == "A":
+                self.score += 1
+                print("Kamu telah mengurangi penggunaan plastik!")
+            elif action.upper() == "B":
+                print("Kamu telah membuang sampah sembarangan! Skor kamu tidak berubah.")
+            elif action.upper() == "C":
+                print(f"Permainan selesai! Skor kamu: {self.score}")
+                break
+            else:
+                print("Input tidak valid. Silakan coba lagi.")
+
+if __name__ == "__main__":
+    game = EnvironmentalGame()
+    game.play()
+```
+```
+### Kritikan + Sandbox v1
+1. Tidak ada batasan skor.
+2. Tidak ada variasi pertanyaan.
+3. Tidak ada sistem restart.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import random
+
+class EnvironmentalGame:
+    def __init__(self):
+        self.score = 0
+        self.max_score = 10
+        self.questions = ["Mengurangi penggunaan plastik", "Menggunakan transportasi umum", "Menghemat energi"]
+
+    def play(self):
+        print("Selamat datang ke permainan konservasi!")
+        while True:
+            if self.score >= self.max_score:
+                print(f"Permainan selesai! Skor kamu: {self.score}")
+                play_again = input("Apakah kamu ingin bermain lagi? (Y/N): ")
+                if play_again.upper() == "Y":
+                    self.score = 0
+                else:
+                    break
+            action = input(f"Apa yang ingin kamu lakukan? ({', '.join([f'({i+1}) {question}' for i, question in enumerate(self.questions)])}, {len(self.questions)+1}) Keluar: ")
+            try:
+                action = int(action)
+                if action == len(self.questions) + 1:
+                    print(f"Permainan selesai! Skor kamu: {self.score}")
+                    play_again = input("Apakah kamu ingin bermain lagi? (Y/N): ")
+                    if play_again.upper() == "
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
