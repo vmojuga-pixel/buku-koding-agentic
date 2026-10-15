@@ -4469,3 +4469,77 @@ app = Ekosistem
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #45 // 2026-10-15T07:31:08.349Z
+### Topik
+Pengenalan Ekosistem Tanah Paya dan Hutan Hujan Melalui Teknologi Realiti Tambah dan Realiti Maya.
+### Kod v1
+```javascript
+```python
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split 
+from sklearn.ensemble 
+from sklearn import metrics
+
+# Load data
+data = pd.read_csv('ecosystem_data.csv')
+
+# Features and target
+X = data.drop(['target'], axis=1)
+y = data['target']
+
+# Train/Test Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Model 
+model = RandomForestClassifier(n_estimators=100)
+
+# Train 
+model.fit(X_train, y_train)
+
+# Prediction
+y_pred = model.predict(X_test)
+
+# Evaluation
+print('Accuracy:', metrics.accuracy_score(y_test, y_pred))
+```
+```
+### Kritikan + Sandbox v1
+1. Tidak import `RandomForestClassifier`.
+2. Kurang import `accuracy_score` dari `metrics`.
+3. Belum handle potensi error ketika load data.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split 
+from sklearn.ensemble import RandomForestClassifier 
+from sklearn import metrics
+
+try:
+    data = pd.read_csv('ecosystem_data.csv')
+except Exception as e:
+    print(f"Error loading data: {e}")
+
+X = data.drop(['target'], axis=1)
+y = data['target']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+model = RandomForestClassifier(n_estimators=100)
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+print('Accuracy:', metrics.accuracy_score(y_test, y_pred))
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1. Gunakan `try-except` untuk mengurus ralat data. 
+2. Tukar `target` dengan nama sebenar lajur sasaran. 
+3. Nilai `n_estimators` boleh diselaraskan untuk optimum. 
+4. Tambah `early stopping` untuk hentikan latihan awal.
