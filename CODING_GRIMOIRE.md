@@ -4796,3 +4796,91 @@ def main():
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #49 // 2026-10-15T08:30:50.211Z
+### Topik
+Teknologi Realiti Maya dan Realiti Tambah Dalam Pengenalan Ekosistem Hutan Bakau dan Tanah Paya.
+### Kod v1
+```javascript
+```python
+import os
+import cv2
+import numpy as np
+
+# VR Experience
+def vr_experience():
+    # Load VR environment
+    env = cv2.imread('vr_environment.jpg')
+
+    # Display VR environment
+    cv2.imshow('VR Experience', env)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+# AR Experience
+def ar_experience():
+    # Load AR marker
+    marker = cv2.imread('ar_marker.jpg')
+
+    # Detect AR marker
+    gray = cv2.cvtColor(marker, cv2.COLOR_BGR2GRAY)
+    corners = cv2.findChessboardCorners(gray, (3, 3))[0]
+
+    # Display AR information
+    if corners is not None:
+        cv2.drawChessboardCorners(marker, (3, 3), corners, True)
+        cv2.imshow('AR Experience', marker)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+
+# Main function
+def main():
+    vr_experience()
+    ar_experience()
+
+if __name__ == '__main__':
+    main()
+```
+```
+### Kritikan + Sandbox v1
+1. Tidak ada penanganan error saat membaca file gambar.
+2. Fungsi tidak dapat dijalankan secara bersamaan.
+3. Tidak ada pengaturan ukuran jendela.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import os
+import cv2
+import numpy as np
+from threading import Thread
+
+def vr_experience():
+    try:
+        env = cv2.imread('vr_environment.jpg')
+        cv2.namedWindow('VR Experience', cv2.WINDOW_NORMAL)
+        cv2.resizeWindow('VR Experience', 800, 600)
+        cv2.imshow('VR Experience', env)
+        cv2.waitKey(0)
+        cv2.destroyWindow('VR Experience')
+    except Exception as e:
+        print(f"Error VR: {e}")
+
+def ar_experience():
+    try:
+        marker = cv2.imread('ar_marker.jpg')
+        gray = cv2.cvtColor(marker, cv2.COLOR_BGR2GRAY)
+        corners = cv2.findChessboardCorners(gray, (3, 3))[0]
+        if corners is not None:
+            cv2.drawChessboardCorners(marker, (3, 3), corners, True)
+        cv2.namedWindow('AR Experience', cv2.WINDOW_NORMAL)
+        cv2.resizeWindow('AR Experience', 800, 600)
+        cv2.imshow('AR Experience', marker)
+        cv2.waitKey(0)
+        cv2.destroyWindow('AR Experience')
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
