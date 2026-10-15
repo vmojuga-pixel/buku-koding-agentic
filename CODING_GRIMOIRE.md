@@ -4543,3 +4543,89 @@ Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 2. Tukar `target` dengan nama sebenar lajur sasaran. 
 3. Nilai `n_estimators` boleh diselaraskan untuk optimum. 
 4. Tambah `early stopping` untuk hentikan latihan awal.
+
+
+---
+## EPOCH #46 // 2026-10-15T07:46:03.642Z
+### Topik
+Pengenalan Ekosistem Hutan Bakau dan Tanah Paya Melalui Teknologi Realiti Maya dan Realiti Tambah.
+### Kod v1
+```javascript
+```python
+import numpy as np
+from VR import create_environment
+from AR import add_interactive_elements
+
+# Pembangunan aplikasi realiti maya dan realiti tambah
+def create_app():
+    env = create_environment("hutan_bakau")
+    add_interactive_elements(env, "flora", "fauna", "hidrologi")
+
+# Visualisasi 3D komponen ekosistem
+def visualize_ecosystem():
+    flora = create_flora_model()
+    fauna = create_fauna_model()
+    hidrologi = create_hidrologi_model()
+    env.add_objects([flora, fauna, hidrologi])
+
+# Simulasi perubahan alam sekitar dan impak manusia
+def simulate_environmental_change():
+    # Simulasi perubahan iklim
+    climate_change = np.random.uniform(0, 1)
+    env.apply_climate_change(climate_change)
+
+create_app()
+visualize_ecosystem()
+simulate_environmental_change()
+```
+```
+### Kritikan + Sandbox v1
+1. Tiada pengendalian ralat.
+2. Penggunaan `env` tidak konsisten.
+3. Fungsi `create_flora_model`, `create_fauna_model`, `create_hidrologi_model` tidak ditakrifkan.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+from VR import create_environment
+from AR import add_interactive_elements
+
+def create_app():
+    try:
+        env = create_environment("hutan_bakau")
+        add_interactive_elements(env, "flora", "fauna", "hidrologi")
+        return env
+    except Exception as e:
+        print(f"Error: {e}")
+
+def create_models(env):
+    try:
+        from models import create_flora_model, create_fauna_model, create_hidrologi_model
+        flora = create_flora_model()
+        fauna = create_fauna_model()
+        hidrologi = create_hidrologi_model()
+        env.add_objects([flora, fauna, hidrologi])
+    except Exception as e:
+        print(f"Error: {e}")
+
+def simulate_environmental_change(env):
+    try:
+        climate_change = np.random.uniform(0, 1)
+        env.apply_climate_change(climate_change)
+    except Exception as e:
+        print(f"Error: {e}")
+
+env = create_app()
+if env:
+    create_models(env)
+    simulate_environmental_change(env)
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1. Gunakan try-except di fungsi `create_app()` untuk tangkap error saat membuat environment.
+2. Panggil fungsi `create_models()` dan `simulate_environmental_change()` jika `env` tidak `None`.
+3. Gunakan import relatif untuk modul `models`.
+4. Tambahkan penanganan error pada fungsi `create_models()` dan `simulate_environmental_change()`. 
+5. Periksa ketergantungan antar modul.
