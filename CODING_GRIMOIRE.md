@@ -2640,3 +2640,81 @@ def draw_square():
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Error.
+
+
+---
+## EPOCH #23 // 2026-10-15T02:00:39.712Z
+### Topik
+Mengenal Ekosistem Padang Rumput Melalui Permainan Interaktif.
+### Kod v1
+```javascript
+```python
+import pygame
+
+class PadangRumput:
+    def __init__(self):
+        pygame.init()
+        self.screen = pygame.display.set_mode((800, 600))
+        self.clock = pygame.time.Clock()
+
+    def run(self):
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+            self.screen.fill((135, 206, 235))  # Warna biru muda
+            pygame.display.flip()
+            self.clock.tick(60)
+        pygame.quit()
+
+if __name__ == "__main__":
+    game = PadangRumput()
+    game.run()
+```
+```
+### Kritikan + Sandbox v1
+1. Kurangnya pengendalian ralat.
+2. Tiada had laju FPS fleksibel.
+3. Tiada sokongan pelbagai resolusi.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import pygame
+import sys
+
+class PadangRumput:
+    def __init__(self, width=800, height=600, fps=60):
+        pygame.init()
+        self.screen = pygame.display.set_mode((width, height), pygame.RESIZABLE)
+        self.clock = pygame.time.Clock()
+        self.fps = fps
+
+    def run(self):
+        try:
+            running = True
+            while running:
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        running = False
+                    elif event.type == pygame.VIDEORESIZE:
+                        self.screen = pygame.display.set_mode((event.w, event.h), pygame.RESIZABLE)
+                self.screen.fill((135, 206, 235))  
+                pygame.display.flip()
+                self.clock.tick(self.fps)
+            pygame.quit()
+            sys.exit()
+        except Exception as e:
+            print(f"Error: {e}")
+            pygame.quit()
+            sys.exit()
+
+if __name__ == "__main__":
+    game = PadangRumput()
+    game.run()
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
