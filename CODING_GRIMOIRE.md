@@ -3043,3 +3043,106 @@ ec
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #28 // 2026-10-15T03:15:52.330Z
+### Topik
+Mengenal Ekosistem Terumbu Karang Melalui Teknologi Realiti Maya.
+### Kod v1
+```javascript
+```python
+import numpy as np
+from scipy.spatial import Delaunay
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# Data titik 3D untuk model terumbu karang
+karang = np.array([
+    [0, 0, 0],
+    [1, 0, 0],
+    [1, 1, 0],
+    [0, 1, 0],
+    [0.5, 0.5, 1]
+])
+
+# Triangulasi untuk membentuk model 3D
+triang = Delaunay(karang[:, :2])
+
+# Plot permukaan 3D
+ax.plot_trisurf(karang[:, 0], karang[:, 1], karang[:, 2], triangles=triang.simplices)
+
+plt.show()
+```
+```
+### Kritikan + Sandbox v1
+1. Tidak ada penanganan error.
+2. Data titik tidak fleksibel.
+3. Model tidak dapat disesuaikan.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+from scipy.spatial import Delaunay
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+def plot_3d_model(titik, model='surface'):
+    try:
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        triang = Delaunay(titik[:, :2])
+        if model == 'surface':
+            ax.plot_trisurf(titik[:, 0], titik[:, 1], titik[:, 2], triangles=triang.simplices)
+        elif model == 'wireframe':
+            ax.plot_wireframe(titik[:, 0], titik[:, 1], titik[:, 2], triangles=triang.simplices)
+        plt.show()
+    except Exception as e:
+        print(f"Error: {e}")
+
+# Data titik 3D untuk model terumbu karang
+karang = np.array([
+    [0, 0, 0],
+    [1, 0, 0],
+    [1, 1, 0],
+    [0, 1, 0],
+    [0.5, 0.5, 1]
+])
+
+plot
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+```python
+import numpy as np
+from scipy.spatial import Delaunay
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+def plot_3d_model(titik, model='surface'):
+    try:
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        triang = Delaunay(titik[:, :2])
+        if model == 'surface':
+            ax.plot_trisurf(titik[:, 0], titik[:, 1], titik[:, 2], triangles=triang.simplices)
+        elif model == 'wireframe':
+            ax.plot_wireframe(titik[:, 0], titik[:, 1], titik[:, 2], triangles=triang.simplices)
+        plt.show()
+    except Exception as e:
+        print(f"Error: {e}")
+
+# Data titik 3D untuk model terumbu karang
+karang = np.array([
+    [0, 0, 0],
+    [1, 0, 0],
+    [1, 1, 0],
+    [0, 1, 0],
+    [0.5, 0.5, 1]
+])
+
+plot
