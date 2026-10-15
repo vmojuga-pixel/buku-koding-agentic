@@ -3318,3 +3318,90 @@ def main():
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #31 // 2026-10-15T04:00:40.921Z
+### Topik
+Pengenalan Ekosistem Tanah Paya dan Hutan Hujan Melalui Teknologi Realiti Tambah dan Realiti Maya.
+### Kod v1
+```javascript
+```python
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split 
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
+
+# Load data
+data = pd.read_csv('ecosystem_data.csv')
+
+# Features and target
+X = data[['biodiversity', 'ecological_processes']]
+y = data['learning_outcomes']
+
+# Train/Test Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Model
+model = LinearRegression()  
+model.fit(X_train, y_train)
+
+# Prediction
+y_pred = model.predict(X_test)
+
+# Evaluation
+print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
+```
+```
+### Kritikan + Sandbox v1
+1. Kurang pemeriksaan data.
+2. Tiada pengecualian ralat.
+3. Model tidak divalidasi.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
+
+# Load data
+try:
+    data = pd.read_csv('ecosystem_data.csv')
+    print(data.head())
+    print(data.info())
+except Exception as e:
+    print("Error loading data: ", str(e))
+
+# Features and target
+X = data[['biodiversity', 'ecological_processes']]
+y = data['learning_outcomes']
+
+# Check for missing values
+if X.isnull().values.any() or y.isnull().values.any():
+    print("Missing values detected. Imputing or removing them is recommended.")
+
+# Train/Test Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Model
+model = LinearRegression()  
+try:
+    model.fit(X_train, y_train)
+except Exception as e:
+    print("Error fitting model: ", str(e))
+
+# Prediction
+y_pred = model.predict(X_test)
+
+# Evaluation
+print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
+
+#
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1.
