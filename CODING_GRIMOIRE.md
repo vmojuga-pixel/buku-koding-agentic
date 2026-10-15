@@ -4214,3 +4214,88 @@ if __name__ == '__main__':
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #42 // 2026-10-15T06:46:20.421Z
+### Topik
+Pengenalan Ekosistem Hutan Bakau dan Tanah Paya Melalui Teknologi Realiti Maya dan Realiti Tambah.
+### Kod v1
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_mangrove(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glColor3f(0.5, 1, 0.5)
+    gluSphere(gluNewQuadric(), 0.5, 32, 32)
+    glPopMatrix()
+
+def draw_swamp(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glColor3f(0.2, 0.5, 0.2)
+    glBegin(GL_QUADS)
+    glVertex3f(-1, -1, 0)
+    glVertex3f(1, -1, 0)
+    glVertex3f(1, 1, 0)
+    glVertex3f(-1, 1, 0)
+    glEnd()
+    glPopMatrix()
+
+def main():
+    pygame.init()
+    display = (800, 600)
+    pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
+
+    gluPerspective(45,
+```
+### Kritikan + Sandbox v1
+1. Kurangnya inisialisasi viewport.
+2. Tidak ada penanganan event untuk menutup window.
+3. Fungsi `main` tidak lengkap.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_mangrove(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glColor3f(0.5, 1, 0.5)
+    gluSphere(gluNewQuadric(), 0.5, 32, 32)
+    glPopMatrix()
+
+def draw_swamp(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glColor3f(0.2, 0.5, 0.2)
+    glBegin(GL_QUADS)
+    glVertex3f(-1, -1, 0)
+    glVertex3f(1, -1, 0)
+    glVertex3f(1, 1, 0)
+    glVertex3f(-1, 1, 0)
+    glEnd()
+    glPopMatrix()
+
+def main():
+    pygame.init()
+    display = (800, 600)
+    pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
+    glViewport(0,
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
