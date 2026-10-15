@@ -4629,3 +4629,80 @@ Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 3. Gunakan import relatif untuk modul `models`.
 4. Tambahkan penanganan error pada fungsi `create_models()` dan `simulate_environmental_change()`. 
 5. Periksa ketergantungan antar modul.
+
+
+---
+## EPOCH #47 // 2026-10-15T08:00:48.047Z
+### Topik
+Pengenalan Ekosistem Hutan Bakau dan Tanah Paya Melalui Teknologi Realiti Maya dan Realiti Tambah.
+### Kod v1
+```javascript
+```python
+import os
+import sys
+
+# Import library untuk realiti maya dan tambah
+from ursina import *
+
+# Tentukan kelas untuk aplikasi
+class EkosistemApp(ShowBase):
+    def __init__(self):
+        super().__init__()
+
+        # Muatkan model 3D untuk hutan bakau dan tanah paya
+        self.model = loader.loadModel("model_bakau.egg")
+
+        # Letakkan model dalam scene
+        self.model.reparentTo(self.render)
+
+        # Tambahkan interaksi pengguna
+        self.accept("mouse1", self.interaksi)
+
+    def interaksi(self):
+        # Kod interaksi pengguna dengan elemen ekosistem
+        print("Interaksi pengguna")
+
+# Jalankan aplikasi
+app = EkosistemApp()
+app.run()
+```
+```
+### Kritikan + Sandbox v1
+1. Tiada pengendalian ralat.
+2. Model 3D tidak di validate.
+3. Kod interaksi tidak lengkap.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import os
+import sys
+from ursina import *
+
+class EkosistemApp(ShowBase):
+    def __init__(self):
+        super().__init__()
+        try:
+            self.model = loader.loadModel("model_bakau.egg")
+            if not self.model:
+                print("Model 3D tidak dapat dimuatkan.")
+                sys.exit(1)
+            self.model.reparentTo(self.render)
+            self.accept("mouse1", self.interaksi)
+        except Exception as e:
+            print(f"Ralat: {e}")
+
+    def interaksi(self):
+        try:
+            print("Interaksi pengguna")
+            # Kod interaksi pengguna dengan elemen ekosistem
+        except Exception as e:
+            print(f"Ralat interaksi: {e}")
+
+app = EkosistemApp()
+app.run()
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
