@@ -3146,3 +3146,85 @@ karang = np.array([
 ])
 
 plot
+
+
+---
+## EPOCH #29 // 2026-10-15T03:30:47.993Z
+### Topik
+Pengenalan Ekosistem Tanah Paya Melalui Teknologi Realiti Tambah.
+### Kod v1
+```javascript
+```python
+import folium
+from folium.plugins import MarkerCluster
+
+# Buat peta
+m = folium.Map(location=[1.3521, 103.8198], zoom_start=10)
+
+# Tambah data spatial
+def tambah_data_spatial(m, data):
+    for _, row in data.iterrows():
+        folium.Marker([row['lat'], row['lon']], popup=row['komponen']).add_to(m)
+
+# Visualisasi interaktif
+def visualisasi_interaktif(m, data):
+    MarkerCluster().add_to(m)
+    tambah_data_spatial(m, data)
+    return m
+
+# Integrasi data
+def integrasi_data(data):
+    # Dapatkan data dari sumber
+    # Contoh: data = pd.read_csv('data.csv')
+    return data
+
+# Jalankan aplikasi
+data = integrasi_data(None) 
+m = visualisasi_interaktif(m, data)
+m.save('aplikasi.html')
+```
+```
+### Kritikan + Sandbox v1
+1. Tidak ada penanganan error pada fungsi `integrasi_data`.
+2. Fungsi `visualisasi_interaktif` tidak menggunakan data yang telah diintegrasikan dengan baik.
+3. Objek `m` dan `data` tidak divalidasi sebelum digunakan.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import folium
+from folium.plugins import MarkerCluster
+import pandas as pd
+
+m = folium.Map(location=[1.3521, 103.8198], zoom_start=10)
+
+def tambah_data_spatial(m, data):
+    if not isinstance(m, folium.Map) or data is None: return
+    for _, row in data.iterrows():
+        folium.Marker([row['lat'], row['lon']], popup=row['komponen']).add_to(m)
+
+def visualisasi_interaktif(m, data):
+    if not isinstance(m, folium.Map) or data is None: return m
+    MarkerCluster().add_to(m)
+    tambah_data_spatial(m, data)
+    return m
+
+def integrasi_data(file_path):
+    try:
+        return pd.read_csv(file_path)
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
+
+data = integrasi_data('data.csv')
+if data is not None:
+    m = visualisasi_interaktif(m, data)
+    m.save('aplikasi.html')
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1. Pastikan library yang diperlukan (`folium`, `pandas`) sudah terinstal. 
+2. Ganti `'data.csv'` dengan path file csv Anda. 
+3. Jalankan script Python tersebut. 
+4. Buka file `aplikasi.html` yang dihasilkan untuk melihat visualisasi.
