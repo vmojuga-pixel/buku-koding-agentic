@@ -3614,3 +3614,78 @@ Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 2. Tulis kod dalam bahasa python. 
 3. Guna class untuk struktur data. 
 4. Kurangkan kompleksiti kod.
+
+
+---
+## EPOCH #35 // 2026-10-15T05:00:44.474Z
+### Topik
+Pengenalan Ekosistem Tanah Paya dan Hutan Hujan Melalui Teknologi Realiti Tambah dan Realiti Maya.
+### Kod v1
+```javascript
+```python
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split 
+from sklearn.ensemble 
+from sklearn import metrics
+
+# Load data
+data = pd.read_csv('ecosystem_data.csv')
+
+# Features and target
+X = data.drop(['target'], axis=1)
+y = data['target']
+
+# Train/Test Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Model
+model = RandomForestClassifier(n_estimators=100)
+
+# Train
+model.fit(X_train, y_train)
+
+# Predict
+y_pred = model.predict(X_test)
+
+# Evaluation
+print('Accuracy:', metrics.accuracy_score(y_test, y_pred))
+```
+```
+### Kritikan + Sandbox v1
+1. Tidak import `RandomForestClassifier`.
+2. Kurang import `accuracy_score` dari `metrics`.
+3. Belum handle potensi error ketika load data.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split 
+from sklearn.ensemble import RandomForestClassifier 
+from sklearn import metrics
+
+try:
+    data = pd.read_csv('ecosystem_data.csv')
+except Exception as e:
+    print(f"Error loading data: {e}")
+
+X = data.drop(['target'], axis=1)
+y = data['target']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+model = RandomForestClassifier(n_estimators=100)
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+
+print('Accuracy:', metrics.accuracy_score(y_test, y_pred))
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1. Gunakan `try-except` untuk mengurus ralat data. 
+2. Tukar `target` kepada nama lajur sasaran. 
+3. Tambah `random_state` pada `train_test_split`. 
+4. Cetak metrik tambahan seperti `precision`, `recall`, dan `f1-score`.
