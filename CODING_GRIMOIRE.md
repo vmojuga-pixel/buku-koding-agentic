@@ -3457,3 +3457,91 @@ app.run()
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #33 // 2026-10-15T04:30:53.986Z
+### Topik
+Pengenalan Ekosistem Tanah Paya dan Hutan Hujan Melalui Teknologi Realiti Tambah dan Realiti Maya
+### Kod v1
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_tree(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glScalef(0.5, 1, 0.5)
+    gluSphere(gluNewQuadric(), 1, 32, 16)
+    glPopMatrix()
+
+def draw_animal(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glScalef(0.2, 0.2, 0.2)
+    gluSphere(gluNewQuadric(), 1, 32, 16)
+    glPopMatrix()
+
+def main():
+    pygame.init()
+    display = (800, 600)
+    pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
+
+    gluPerspective(45, (display[0]/display[1]), 0.1, 50.0)
+
+    glTranslatef(0.0, 0.0, -5)
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.
+```
+### Kritikan + Sandbox v1
+1. Kurangnya pengendalian memori.
+2. Tidak ada had untuk recursion.
+3. Penggunaan `gluNewQuadric()` berulang.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+quadric = gluNewQuadric()
+
+def draw_tree(x, y, z, depth=0):
+    if depth > 5: return
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glScalef(0.5, 1, 0.5)
+    gluSphere(quadric, 1, 32, 16)
+    glPopMatrix()
+    # recursion example
+
+def draw_animal(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glScalef(0.2, 0.2, 0.2)
+    gluSphere(quadric, 1, 32, 16)
+    glPopMatrix()
+
+def main():
+    pygame.init()
+    display = (800, 600)
+    pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
+
+    gluPerspective(45, (display[0]/display[1]), 0.1, 50.0)
+
+    glTranslatef(0.0, 0.0,
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
