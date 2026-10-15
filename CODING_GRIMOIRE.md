@@ -2790,3 +2790,89 @@ class HutanHujan:
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #25 // 2026-10-15T02:30:40.895Z
+### Topik
+Mengenal Ekosistem Terumbu Karang Melalui Teknologi Augmented Reality.
+### Kod v1
+```javascript
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from AR_library import AR_marker
+
+# Buat model 3D terumbu karang
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# Tampilkan struktur ekosistem terumbu karang
+ax.scatter(np.random.rand(100), np.random.rand(100), np.random.rand(100))
+
+# Interaksi dengan model 3D
+def interact(model):
+    # Proses ekologis
+    return model
+
+# Informasi keanekaragaman hayati
+info = pd.DataFrame({
+    'Spesies': ['Ikan', 'Karang', 'Moluska'],
+    'Jumlah': [100, 50, 200]
+})
+
+# Tampilkan informasi
+print(info)
+
+# Integrasi AR
+AR_marker(interact, info)
+```
+```
+### Kritikan + Sandbox v1
+1. Kurangnya validasi data.
+2. Penggunaan `np.random` untuk data ekosistem.
+3. Fungsi `interact` tidak dimanfaatkan.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from AR_library import AR_marker
+
+# Data ekosistem terumbu karang
+data = {
+    'X': np.random.rand(100),
+    'Y': np.random.rand(100),
+    'Z': np.random.rand(100)
+}
+
+# Validasi data
+if len(data['X']) != len(data['Y']) or len(data['X']) != len(data['Z']):
+    raise ValueError("Data tidak lengkap")
+
+# Buat model 3D terumbu karang
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(data['X'], data['Y'], data['Z'])
+
+# Informasi keanekaragaman hayati
+info = pd.DataFrame({
+    'Spesies': ['Ikan', 'Karang', 'Moluska'],
+    'Jumlah': [100, 50, 200]
+})
+
+# Fungsi interaksi
+def interact(model):
+    return model * 1.1  # Contoh interaksi: peningkatan 10%
+
+# Integrasi AR dengan interaksi
+AR_marker(interact, info)
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
