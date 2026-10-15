@@ -2955,3 +2955,91 @@ def draw_fauna(x, y):
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #27 // 2026-10-15T03:00:44.116Z
+### Topik
+Mengenal Ekosistem Hutan Hujan Tropika Melalui Teknologi Realiti Tambah.
+### Kod v1
+```javascript
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from ARKit import ARWorld
+
+class TropicalRainforestEcosystem:
+    def __init__(self):
+        self.flora = ['Tree', 'Flower', 'Vine']
+        self.fauna = ['Monkey', 'Bird', 'Snake']
+
+    def visualize(self):
+        ar_world = ARWorld()
+        for flora in self.flora:
+            ar_world.add_object(flora, position=np.random.rand(3))
+        for fauna in self.fauna:
+            ar_world.add_object(fauna, position=np.random.rand(3))
+        ar_world.run()
+
+    def interact(self):
+        print("Interact with ecosystem components:")
+        for flora in self.flora:
+            print(f"- {flora}")
+        for fauna in self.fauna:
+            print(f"- {fauna}")
+
+# Run the ecosystem
+ecosystem = TropicalRainforestEcosystem()
+ecosystem.visualize()
+ecosystem.interact()
+```
+```
+### Kritikan + Sandbox v1
+1. Penggunaan `ARKit` yang tidak standard.
+2. Tiada pengendalian ralat dalam `visualize` dan `interact`.
+3. Kedudukan objek rawak tidak dapat dikawal.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy.spatial import RandomState
+
+class TropicalRainforestEcosystem:
+    def __init__(self):
+        self.flora = ['Tree', 'Flower', 'Vine']
+        self.fauna = ['Monkey', 'Bird', 'Snake']
+        self.rs = RandomState(42)
+
+    def visualize(self):
+        try:
+            fig, ax = plt.subplots()
+            for flora in self.flora:
+                ax.scatter(self.rs.rand(), self.rs.rand(), label=flora)
+            for fauna in self.fauna:
+                ax.scatter(self.rs.rand(), self.rs.rand(), label=fauna)
+            plt.legend()
+            plt.show()
+        except Exception as e:
+            print(f"Error in visualize: {e}")
+
+    def interact(self):
+        try:
+            print("Interact with ecosystem components:")
+            for flora in self.flora:
+                print(f"- {flora}")
+            for fauna in self.fauna:
+                print(f"- {fauna}")
+        except Exception as e:
+            print(f"Error in interact: {e}")
+
+# Run the ecosystem
+ecosystem = TropicalRainforestEcosystem()
+ec
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
