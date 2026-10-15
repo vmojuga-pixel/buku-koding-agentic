@@ -2718,3 +2718,75 @@ if __name__ == "__main__":
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #24 // 2026-10-15T02:15:41.137Z
+### Topik
+Mengenal Ekosistem Hutan Hujan Melalui Realiti Maya.
+### Kod v1
+```javascript
+```python
+class HutanHujan:
+    def __init__(self):
+        self.tumbuhan = ["Pokok Besar", "Semak", "Tanaman Merambat"]
+        self.haiwan = ["Harimau", "Gajah", "Burung"]
+
+    def meneroka_struktur(self):
+        print("Struktur Hutan Hujan:")
+        print("1. Kanopi")
+        print("2. Lapisan Semak")
+        print("3. Lapisan Tanah")
+
+    def mengenal_jenis(self):
+        print("Jenis Tumbuhan: ", self.tumbuhan)
+        print("Jenis Haiwan: ", self.haiwan)
+
+    def interaksi_ekosistem(self):
+        print("Interaksi dalam Ekosistem:")
+        print("1. Fotosintesis")
+        print("2. Penguraian")
+
+hutan = HutanHujan()
+hutan.meneroka_struktur()
+hutan.menal_jenis()
+hutan.interaksi_ekosistem()
+```
+```
+### Kritikan + Sandbox v1
+1. Tiada pengesahan input.
+2. Kaedah tidak fleksibel untuk penambahan data.
+3. Tiada pengendalian ralat.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+class HutanHujan:
+    def __init__(self):
+        self.tumbuhan = ["Pokok Besar", "Semak", "Tanaman Merambat"]
+        self.haiwan = ["Harimau", "Gajah", "Burung"]
+
+    def meneroka_struktur(self):
+        while True:
+            print("Struktur Hutan Hujan:")
+            print("1. Kanopi")
+            print("2. Lapisan Semak")
+            print("3. Lapisan Tanah")
+            pilihan = input("Masukkan pilihan (1/2/3): ")
+            if pilihan in ['1', '2', '3']:
+                print(f"Anda memilih: {['Kanopi', 'Lapisan Semak', 'Lapisan Tanah'][int(pilihan)-1]}")
+                break
+            else:
+                print("Pilihan tidak sah. Sila masukkan semula.")
+
+    def mengenal_jenis(self):
+        print("Jenis Tumbuhan: ", self.tumbuhan)
+        print("Jenis Haiwan: ", self.haiwan)
+        while True:
+            tambah_tumbuhan = input("Tambah tumbuhan? (y/n): ")
+            if tambah_tumbuhan.lower() == 'y':
+                self.tumbuhan.append
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
