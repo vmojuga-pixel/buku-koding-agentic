@@ -2571,3 +2571,72 @@ class EnvironmentalGame:
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #22 // 2026-10-15T01:45:38.721Z
+### Topik
+Mengenal Ekosistem Terumbu Karang Melalui Simulasi Penyelaman Virtual
+### Kod v1
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_square():
+    glBegin(GL_QUADS)
+
+    glColor3f(1.0, 0.0, 0.0)
+    glVertex3f(-0.5, -0.5, 0.0)
+
+    glColor3f(0.0, 1.0, 0.0)
+    glVertex3f(0.5, -0.5, 0.0)
+
+    glColor3f(0.0, 0.0, 1.0)
+    glVertex3f(0.5, 0.5, 0.0)
+
+    glColor3f(1.0, 1.0, 0.0)
+    glVertex3f(-0.5, 0.5, 0.0)
+
+    glEnd()
+
+def main():
+    pygame.init()
+    display = (800,600)
+    pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
+
+    gluPerspective(45, (display[0]/display[1]), 0.
+```
+### Kritikan + Sandbox v1
+1. Tidak ada penanganan error.
+2. Penggunaan fungsi `glBegin` dan `glEnd` yang sudah tidak direkomendasikan.
+3. Kurangnya pengaturan viewport.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_square():
+    try:
+        glVertexPointer(3, GL_FLOAT, 0, np.array([-0.5, -0.5, 0.0, 0.5, -0.5, 0.0, 0.5, 0.5, 0.0, -0.5, 0.5, 0.0], dtype=np.float32))
+        glColorPointer(3, GL_FLOAT, 0, np.array([1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0], dtype=np.float32))
+        glEnableClientState(GL_VERTEX_ARRAY)
+        glEnableClientState(GL_COLOR_ARRAY)
+        glDrawArrays(GL_QUADS, 0, 4)
+        glDisableClientState(GL_VERTEX_ARRAY)
+        glDisableClientState(GL_COLOR_ARRAY)
+    except Exception as
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Error.
