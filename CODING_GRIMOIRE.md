@@ -1970,3 +1970,112 @@ Sandbox: Lulus static analysis (tiada pattern berbahaya)
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 1.
+
+
+---
+## EPOCH #15 // 2026-10-15T00:01:35.823Z
+### Topik
+1. Desain Chatbot Pembelajaran Interaktif Berbasis Kearifan Lokal.
+2. Analisis Kearifan Lokal dalam Meningkatkan Motivasi Siswa melalui Chatbot.
+3. Evaluasi Efektivitas Chatbot Kearifan Lokal terhadap Hasil Belajar Siswa.
+4. Pengembangan Model Chatbot Adaptif untuk Pembelajaran Siswa Sekolah Dasar.
+### Kod v1
+```javascript
+```python
+import nltk
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+
+import json
+import pickle
+import numpy as np
+
+from keras.models import Sequential
+from keras.layers import Dense, Activation, Dropout
+from keras.optimizers import SGD
+import random
+
+words = []
+classes = []
+documents = []
+
+with open('local.json') as file:
+    data = json.load(file)
+
+for intent in data['intents']:
+    for pattern in intent['patterns']:
+        w = nltk.word_tokenize(pattern)
+        words.extend(w)
+        documents.append((w, intent['tag']))
+        if intent['tag'] not in classes:
+            classes.append(intent['tag'])
+
+words = [lemmatizer.lemmatize(w.lower()) for w in words if w != "?"]
+words = sorted(list(set(words)))
+
+classes = sorted(list(set(classes)))
+
+pickle.dump(words, open('words.pkl', 'wb'))
+pickle.dump(classes, open('classes.pkl', 'wb'))
+
+training = []
+output_empty = [0] * len(classes)
+
+for doc in documents:
+    bag = []
+
+    w = doc[0]
+    w = [lemmatizer.lemmatize(word.lower())
+```
+### Kritikan + Sandbox v1
+1. **Tidak ada penanganan error**: Kode tidak memiliki penanganan error yang efektif.
+2. **Ketergantungan pada library eksternal**: Kode sangat bergantung pada library eksternal seperti NLTK, Keras, dan pickle.
+3. **Data training tidak divalidasi**: Kode tidak memvalidasi data training sebelum digunakan.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import nltk
+from nltk.stem import WordNetLemmatizer
+import json
+import pickle
+import numpy as np
+from keras.models import Sequential
+from keras.layers import Dense, Activation, Dropout
+from keras.optimizers import SGD
+import random
+import logging
+
+try:
+    logging.basicConfig(level=logging.INFO)
+    lemmatizer = WordNetLemmatizer()
+    words = []
+    classes = []
+    documents = []
+
+    with open('local.json') as file:
+        data = json.load(file)
+
+    for intent in data['intents']:
+        for pattern in intent['patterns']:
+            w = nltk.word_tokenize(pattern)
+            words.extend(w)
+            documents.append((w, intent['tag']))
+            if intent['tag'] not in classes:
+                classes.append(intent['tag'])
+
+    words = [lemmatizer.lemmatize(w.lower()) for w in words if w != "?"]
+    words = sorted(list(set(words)))
+    classes = sorted(list(set(classes)))
+
+    pickle.dump(words, open('words.pkl', 'wb'))
+    pickle.dump(classes, open('classes.pkl', 'wb'))
+
+    training = []
+    output_empty = [0] * len(classes)
+
+    for doc
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
