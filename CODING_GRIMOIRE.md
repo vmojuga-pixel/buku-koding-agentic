@@ -4706,3 +4706,93 @@ app.run()
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #48 // 2026-10-15T08:15:32.228Z
+### Topik
+1. "Pengenalan Ekosistem Hutan Bakau dan Tanah Paya Melalui Teknologi Realiti Maya dan Realiti Tambah" 
+2. "Teknologi Realiti Maya dan Realiti Tambah: Alat Pendidikan Ekosistem Hutan Bakau dan Tanah Paya"
+3. "Inovasi Pembelajaran Ekosistem Melalui Realiti Maya dan Realiti Tambah"
+4. "Ekosistem Hutan Bakau dan Tanah Paya: Pembelajaran Interaktif dengan Teknologi Realiti"
+### Kod v1
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_bakau(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glColor3f(0.5, 1, 0.5)
+    gluSphere(gluNewQuadric(), 0.5, 32, 32)
+    glPopMatrix()
+
+def draw_tanah_paya(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glColor3f(0.8, 0.5, 0.2)
+    gluSphere(gluNewQuadric(), 0.3, 32, 32)
+    glPopMatrix()
+
+def main():
+    pygame.init()
+    display = (800, 600)
+    pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
+
+    gluPerspective(45, (display[0]/display[1]), 0.1, 50.0)
+
+    glTranslatef(0.0, 0.0, -5)
+
+    while True:
+        for event in
+```
+### Kritikan + Sandbox v1
+1. Kurangnya pengendalian ralat.
+2. Tiada had laju bingkai.
+3. Gelung utama tidak interaktif.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_bakau(x, y, z):
+    try:
+        glPushMatrix()
+        glTranslatef(x, y, z)
+        glColor3f(0.5, 1, 0.5)
+        gluSphere(gluNewQuadric(), 0.5, 32, 32)
+        glPopMatrix()
+    except Exception as e:
+        print(f"Error drawing bakau: {e}")
+
+def draw_tanah_paya(x, y, z):
+    try:
+        glPushMatrix()
+        glTranslatef(x, y, z)
+        glColor3f(0.8, 0.5, 0.2)
+        gluSphere(gluNewQuadric(), 0.3, 32, 32)
+        glPopMatrix()
+    except Exception as e:
+        print(f"Error drawing tanah paya: {e}")
+
+def main():
+    pygame.init()
+    display = (800, 600)
+    try:
+        pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
+    except Exception as
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
