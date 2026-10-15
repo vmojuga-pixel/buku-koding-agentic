@@ -2428,3 +2428,74 @@ permainan_matematika()
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #20 // 2026-10-15T01:15:44.970Z
+### Topik
+4. Mengenal Profesi Lokal Melalui Simulasi Interaktif, 
+5. Pelajaran Bahasa Daerah Melalui Permainan Kata, 
+6. Eksplorasi Alam dengan Kearifan Lokal.
+### Kod v1
+```javascript
+```python
+import random
+
+# Profesi Lokal
+profesi = ["Petani", "Nelayan", "Dokter"]
+def simulasi_profesi():
+    print("Simulasi Profesi Lokal")
+    print("Anda ingin menjadi:", random.choice(profesi))
+
+# Pembelajaran Bahasa Daerah
+kata_daerah = ["Selamat", "Terima", "Kasih"]
+def permainan_kata():
+    print("Permainan Kata Bahasa Daerah")
+    print("Kata yang benar adalah:", random.choice(kata_daerah))
+
+# Eksplorasi Alam
+eksplorasi = ["Mengunjungi hutan", "Melihat keindahan pantai", "Menikmati keindahan gunung"]
+def eksplorasi_alam():
+    print("Eksplorasi Alam Berbasis Kearifan Lokal")
+    print("Aktivitas yang dapat dilakukan:", random.choice(eksplorasi))
+
+simulasi_profesi()
+permainan_kata()
+eksplorasi_alam()
+```
+```
+### Kritikan + Sandbox v1
+1. Kurangnya Variasi.
+2. Kode Repetitif.
+3. Fungsionalitas Terbatas.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import random
+
+# Data Lokal
+data_lokal = {
+    "profesi": ["Petani", "Nelayan", "Dokter"],
+    "kata_daerah": ["Selamat", "Terima", "Kasih"],
+    "eksplorasi": ["Mengunjungi hutan", "Melihat keindahan pantai", "Menikmati keindahan gunung"]
+}
+
+def aktivitas_acak(kategori):
+    return random.choice(data_lokal[kategori])
+
+def main():
+    print("Simulasi Profesi Lokal:", aktivitas_acak("profesi"))
+    print("Permainan Kata Bahasa Daerah:", aktivitas_acak("kata_daerah"))
+    print("Eksplorasi Alam Berbasis Kearifan Lokal:", aktivitas_acak("eksplorasi"))
+
+if __name__ == "__main__":
+    main()
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1. Gunakan struktur data yang lebih modular untuk menampung data lokal. 
+2. Tambahkan penanganan error untuk kategori yang tidak ada. 
+3. Fungsi `aktivitas_acak` dapat dikembangkan untuk menerima parameter tambahan. 
+4. Fungsi `main` dapat dikembangkan untuk menerima input dari pengguna.
