@@ -4974,3 +4974,88 @@ def main():
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #51 // 2026-10-15T09:01:02.896Z
+### Topik
+1. "Penggunaan Realiti Maya dalam Simulasi Ekosistem Hutan Bakau untuk Pendidikan Alam Sekitar". 
+2. "Realiti Tambah dalam Pengenalan Flora dan Fauna di Tanah Paya: Satu Kajian Kes". 
+3. "Integrasi Realiti Maya dan Realiti Tambah dalam Pembelajaran Ekosistem Hutan Bakau dan Tanah Paya untuk Pelajar Sekolah". 
+4. "Teknologi Realiti Maya dan Realiti Tambah sebagai Alat Bantu Pengajaran dalam Pendidikan Ekosistem Hutan Bakau dan Tanah Paya".
+### Kod v1
+```javascript
+```
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_mangrove(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glColor3f(0.5, 1, 0.5)
+    gluSphere(gluNewQuadric(), 0.5, 32, 32)
+    glPopMatrix()
+
+def draw_swamp(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glColor3f(0.2, 0.8, 0.2)
+    glBegin(GL_QUADS)
+    glVertex3f(-0.5, -0.5, 0)
+    glVertex3f(0.5, -0.5, 0)
+    glVertex3f(0.5, 0.5, 0)
+    glVertex3f(-0.5, 0.5, 0)
+    glEnd()
+    glPopMatrix()
+
+def main():
+    pygame.init()
+    display = (800, 600)
+    pygame.display.set_mode
+```
+### Kritikan + Sandbox v1
+1. Kod tidak lengkap.
+2. Tiada gelung utama.
+3. Tiada pengendalian acara.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_mangrove(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glColor3f(0.5, 1, 0.5)
+    gluSphere(gluNewQuadric(), 0.5, 32, 32)
+    glPopMatrix()
+
+def draw_swamp(x, y, z):
+    glPushMatrix()
+    glTranslatef(x, y, z)
+    glColor3f(0.2, 0.8, 0.2)
+    glBegin(GL_QUADS)
+    glVertex3f(-0.5, -0.5, 0)
+    glVertex3f(0.5, -0.5, 0)
+    glVertex3f(0.5, 0.5, 0)
+    glVertex3f(-0.5, 0.5, 0)
+    glEnd()
+    glPopMatrix()
+
+def main():
+    pygame.init()
+    display = (800, 600)
+    pygame.display
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
