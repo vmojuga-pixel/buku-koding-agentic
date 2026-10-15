@@ -3689,3 +3689,77 @@ Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 2. Tukar `target` kepada nama lajur sasaran. 
 3. Tambah `random_state` pada `train_test_split`. 
 4. Cetak metrik tambahan seperti `precision`, `recall`, dan `f1-score`.
+
+
+---
+## EPOCH #36 // 2026-10-15T05:15:35.845Z
+### Topik
+Pengenalan Ekosistem Hutan Bakau dan Tanah Paya Melalui Teknologi Realiti Maya dan Realiti Tambah.
+### Kod v1
+```javascript
+```python
+import numpy as np
+from VR import create_environment
+from AR import add_interactive_elements
+
+# Pembangunan aplikasi realiti maya dan realiti tambah
+def create_app():
+    env = create_environment("hutan_bakau")
+    add_interactive_elements(env, ["flora", "fauna", "hidrologi"])
+
+# Visualisasi 3D komponen ekosistem
+def visualize_ecosystem():
+    flora = create_3d_model("flora")
+    fauna = create_3d_model("fauna")
+    hidrologi = create_3d_model("hidrologi")
+    env.add_models([flora, fauna, hidrologi])
+
+# Simulasi perubahan alam sekitar dan impak manusia
+def simulate_environmental_change():
+    # Simulasi perubahan iklim
+    climate_change = simulate_climate_change(env)
+    # Simulasi impak manusia
+    human_impact = simulate_human_impact(env)
+```
+```
+### Kritikan + Sandbox v1
+1. Tiada pengendalian ralat.
+2. Fungsi `create_app` tidak mengembalikan nilai.
+3. Pembolehubah `env` tidak diakses dalam semua fungsi.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+from VR import create_environment
+from AR import add_interactive_elements
+
+def create_app():
+    try:
+        env = create_environment("hutan_bakau")
+        env = add_interactive_elements(env, ["flora", "fauna", "hidrologi"])
+        return env
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
+
+def visualize_ecosystem(env):
+    try:
+        flora = create_3d_model("flora")
+        fauna = create_3d_model("fauna")
+        hidrologi = create_3d_model("hidrologi")
+        env.add_models([flora, fauna, hidrologi])
+    except Exception as e:
+        print(f"Error: {e}")
+
+def simulate_environmental_change(env):
+    try:
+        climate_change = simulate_climate_change(env)
+        human_impact = simulate_human_impact(env)
+    except Exception as e:
+        print(f"Error: {e}")
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1.
