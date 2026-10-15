@@ -5236,3 +5236,78 @@ class PembelajaranInteraktif:
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 1.
+
+
+---
+## EPOCH #54 // 2026-10-15T18:01:35.167Z
+### Topik
+"Pengembangan Model Pembelajaran Ekosistem Hutan Bakau dan Tanah Paya Berbasis Realiti Maya dan Realiti Tambah di Sekolah Menengah".
+### Kod v1
+```javascript
+```python
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split 
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+# Pembangunan model pembelajaran interaktif
+def create_model():
+    # Data pendidikan ekosistem hutan bakau dan tanah paya
+    data = pd.DataFrame({
+        'feature1': np.random.rand(100),
+        'feature2': np.random.rand(100),
+        'label': np.random.randint(2, size=100)
+    })
+
+    # Integrasi teknologi realiti maya dan realiti tambah
+    X = data[['feature1', 'feature2']]
+    y = data['label']
+
+    # Model Random Forest untuk pendidikan interaktif
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    model = RandomForestClassifier()
+    model.fit(X_train, y_train)
+
+    # Aplikasi dalam kurikulum sekolah menengah
+    y_pred = model.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    return accuracy
+
+# Pelaksanaan model
+accuracy = create_model()
+print(f'Accuracy: {accuracy:.2f
+```
+### Kritikan + Sandbox v1
+1. Kurangnya variasi data.
+2. Model terlalu bergantung pada data rawak.
+3. Tiada proses pengoptimasian hiperparameter.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split 
+from sklearn.metrics import accuracy_score
+
+def create_model():
+    X, y = make_classification(n_samples=1000, n_features=10, n_informative=5, n_redundant=3, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    param_grid = {'n_estimators': [10, 50, 100], 'max_depth': [None, 5, 10]}
+    model = GridSearchCV(RandomForestClassifier(random_state=42), param_grid, cv=5)
+    model.fit(X_train, y_train)
+
+    y_pred = model.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    return accuracy
+
+accuracy = create_model()
+print(f'Accuracy: {accuracy:.2f}')
+```
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+1.
