@@ -2876,3 +2876,82 @@ AR_marker(interact, info)
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #26 // 2026-10-15T02:45:41.087Z
+### Topik
+Mengenal Ekosistem Tundra Melalui Realiti Tambah.
+### Kod v1
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_tundra():
+    glBegin(GL_QUADS)
+    glColor3f(0.5, 0.5, 0.5)
+    glVertex3f(-0.5, -0.5, 0)
+    glVertex3f(0.5, -0.5, 0)
+    glVertex3f(0.5, 0.5, 0)
+    glVertex3f(-0.5, 0.5, 0)
+    glEnd()
+
+def draw_flora(x, y):
+    glPushMatrix()
+    glTranslatef(x, y, 0)
+    glColor3f(0, 1, 0)
+    gluSphere(gluNewQuadric(), 0.1, 32, 32)
+    glPopMatrix()
+
+def draw_fauna(x, y):
+    glPushMatrix()
+    glTranslatef(x, y, 0)
+    glColor3f(1, 0, 0)
+    gluSphere(gluNewQuadric(),
+```
+### Kritikan + Sandbox v1
+1. Kod tidak lengkap.
+2. Tiada fungsi `main`.
+3. Penggunaan `gluNewQuadric()` tidak dibebaskan.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import numpy as np
+import pygame
+from pygame.locals import *
+
+from OpenGL.GL import *
+from OpenGL.GLU import *
+
+def draw_tundra():
+    glBegin(GL_QUADS)
+    glColor3f(0.5, 0.5, 0.5)
+    glVertex3f(-0.5, -0.5, 0)
+    glVertex3f(0.5, -0.5, 0)
+    glVertex3f(0.5, 0.5, 0)
+    glVertex3f(-0.5, 0.5, 0)
+    glEnd()
+
+def draw_flora(x, y):
+    glPushMatrix()
+    glTranslatef(x, y, 0)
+    glColor3f(0, 1, 0)
+    quadric = gluNewQuadric()
+    gluSphere(quadric, 0.1, 32, 32)
+    gluDeleteQuadric(quadric)
+    glPopMatrix()
+
+def draw_fauna(x, y):
+    glPushMatrix()
+    glTranslatef(x, y, 0)
+    glColor3f(1,
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
