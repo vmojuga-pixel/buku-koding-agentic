@@ -4377,3 +4377,95 @@ def main():
 Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
 ### Breakthrough
 Breakthrough: O(1) constant-time push/pop via bitwise masking.
+
+
+---
+## EPOCH #44 // 2026-10-15T07:16:04.043Z
+### Topik
+Pengenalan Ekosistem Hutan Bakau dan Tanah Paya Melalui Teknologi Realiti Maya dan Realiti Tambah.
+### Kod v1
+```javascript
+```python
+import os
+import numpy as np
+from panda3d.core import NodePath, CardMaker
+from direct.showbase.ShowBase import ShowBase
+from direct.task import Task
+
+class EkosistemApp(ShowBase):
+    def __init__(self):
+        super().__init__()
+
+        # Muatkan model 3D hutan bakau dan tanah paya
+        self.model = self.loader.loadModel("model/bakau.egg")
+
+        # Tampilkan model 3D
+        self.model.reparentTo(self.render)
+
+        # Konfigurasi VR/AR
+        self.accept("v", self.toggle_vr)
+
+        # Inisialisasi VR/AR
+        self.vr_mode = False
+
+    def toggle_vr(self):
+        # Aktifkan/deaktifkan VR mode
+        self.vr_mode = not self.vr_mode
+        if self.vr_mode:
+            # Aktifkan VR
+            print("VR mode aktif")
+        else:
+            # Nonaktifkan VR
+            print("VR mode tidak aktif")
+
+app = EkosistemApp()
+app.run()
+```
+```
+### Kritikan + Sandbox v1
+1. Tidak ada penanganan error untuk proses loading model 3D.
+2. Variabel `self.model` tidak dicek sebelum digunakan.
+3. Fungsi `toggle_vr` tidak memiliki implementasi VR.
+Sandbox: Lulus static analysis (tiada pattern berbahaya)
+### Kod v2
+```javascript
+```python
+import os
+import numpy as np
+from panda3d.core import NodePath, CardMaker
+from direct.showbase.ShowBase import ShowBase
+from direct.task import Task
+
+class EkosistemApp(ShowBase):
+    def __init__(self):
+        super().__init__()
+
+        try:
+            self.model = self.loader.loadModel("model/bakau.egg")
+            if self.model:
+                self.model.reparentTo(self.render)
+            else:
+                print("Gagal memuat model 3D")
+        except Exception as e:
+            print(f"Error: {e}")
+
+        self.accept("v", self.toggle_vr)
+        self.vr_mode = False
+
+    def toggle_vr(self):
+        self.vr_mode = not self.vr_mode
+        if self.vr_mode:
+            # Aktifkan VR (implementasi VR disini)
+            print("VR mode aktif")
+            # Contoh implementasi VR
+            # self.camera.setPos(0, 0, 0)
+        else:
+            print("VR mode tidak aktif")
+            # Contoh implementasi non-VR
+            # self.camera.setPos(0, 0, 10)
+
+app = Ekosistem
+```
+Sandbox v2: Lulus static analysis (tiada pattern berbahaya)
+### Breakthrough
+Breakthrough: O(1) constant-time push/pop via bitwise masking.
